@@ -1,11 +1,6 @@
 import random
-do_you_want_to_music = input("do you want to play music? (y/n): ")
 import turtle
 import time
-import os
-import threading
-import sounddevice as sd
-import soundfile as sf
 import keyboard
 import tkinter as tk
 from tkinter import messagebox
@@ -20,7 +15,6 @@ screen.setup(width=400, height=700)
 dess = turtle.Turtle()
 dess.shape("dess.gif")
 dess.penup()
-file_path_music = os.path.join(os.path.dirname(__file__), "asgore.mp3")
 dess.goto(0, 60)
 dess.pendown()
 asgore = turtle.Turtle()
@@ -28,16 +22,6 @@ asgore.penup()
 asgore.goto(0, 350)
 asgore.shape("car.gif")
 asgore.pendown()  
-if do_you_want_to_music == "y":
-     data, samplerate = sf.read(file_path_music)
-     threading.Thread(target=sd.play, args=(data, samplerate), daemon=True).start()
-elif do_you_want_to_music == "yes":
-     data, samplerate = sf.read(file_path_music)
-     threading.Thread(target=sd.play, args=(data, samplerate), daemon=True).start()
-elif do_you_want_to_music == "n":
-     print("ok, no music")
-elif do_you_want_to_music == "no":
-     print("ok, no music")
 dess.speed(4)
 screen.tracer(0)
 dess.up()
